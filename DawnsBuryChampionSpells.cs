@@ -88,7 +88,7 @@ public class ChampionSpells
                                      return new Bonus(2, BonusType.Status, "Lay on Hands");
                                  }
                                  return null;
-                             },
+                             }
                          };
                          if (spellcaster.HasFeat(DawnsburyChampionFeats.AcceleratingTouchFeatName))
                          {

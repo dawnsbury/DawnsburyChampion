@@ -373,7 +373,7 @@ namespace Dawnsbury.Mods.Classes.Champion
             {
                 Creature target = null;
 
-                QEffect RetributiveStrikeEffect = new QEffect("RetributiveStrike", " ", ExpirationCondition.Never, creature, IllustrationName.AcidArrow)
+                QEffect RetributiveStrikeEffect = new QEffect("RetributiveStrike", " ", ExpirationCondition.Never, creature)
                 {
                     YouAreDealtDamage = async delegate (QEffect qf, Creature attacker, DamageStuff damageStuff, Creature defender)
                     {
@@ -786,14 +786,13 @@ namespace Dawnsbury.Mods.Classes.Champion
                     {
                         if (newQEffect.Id == QEffectId.Frightened)
                         {
-                            if (self.Owner.HasEffect(QEffectId.DirgeOfDoomFrightenedSustainer))
+                            newQEffect.Value = newQEffect.Value - 1;
+
+                            if (newQEffect.Value <= 0 && self.Owner.HasEffect(QEffectId.DirgeOfDoomFrightenedSustainer))
                             {
                                 newQEffect.Value = Math.Max(1, newQEffect.Value - 1);
                             }
-                            else
-                            {
-                                newQEffect.Value--;
-                            }
+                              
 
                             if (newQEffect.Value <= 0)
                             {
@@ -813,10 +812,7 @@ namespace Dawnsbury.Mods.Classes.Champion
                                 {
                                     if (effect.Id == QEffectId.Frightened)
                                     {
-                                        if (effect.Id == QEffectId.Frightened)
-                                        {
-                                            effect.Value--;
-                                        }
+                                        effect.Value = effect.Value - 1;
 
                                         if (effect.Value <= 0 && effect.Owner.HasEffect(QEffectId.DirgeOfDoomFrightenedSustainer))
                                         {
@@ -833,7 +829,7 @@ namespace Dawnsbury.Mods.Classes.Champion
                         }
                     }
                 });
-            }).WithPermanentQEffect("You and your allies recover quicker from {b}frightened{/b}.", qf =>
+            }).WithPermanentQEffect("You and allies around recover quicker from {b}frightened{/b}.", qf =>
             {
 
             });
