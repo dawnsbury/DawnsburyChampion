@@ -692,7 +692,7 @@ namespace Dawnsbury.Mods.Classes.Champion
                     {
                         if (action.SpellcastingSource != null)
                         {
-                            creature.Battle.AskToUseReaction(creature, "You are about to roll a saving throw against a spell. Use Divine Grace?");
+                            await creature.Battle.AskToUseReaction(creature, "You are about to roll a saving throw against a spell. Use Divine Grace?");
                             creature.AddQEffect(new QEffect(ExpirationCondition.Ephemeral)
                             {
                                 BonusToDefenses = (QEffect qf, CombatAction action, Defense defense) => new Bonus(2, BonusType.Circumstance, "Divine Grace")
