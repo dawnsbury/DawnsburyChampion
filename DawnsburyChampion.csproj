@@ -18,15 +18,7 @@
       <HintPath>E:\SteamLibrary\steamapps\common\Dawnsbury Days\Data\MonoGame.Framework.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\bigpo\source\repos\Dawnsburymod\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\bigpo\source\repos\Dawnsburymod\.editorconfig" />
-  </ItemGroup>
-
+	
   <ItemGroup>
     <PackageReference Include="Humanizer.Core" Version="2.14.1" />
   </ItemGroup>
