@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+#Additional Visual Studio files
+.editorconfig
+GlobalSuppressions.cs
